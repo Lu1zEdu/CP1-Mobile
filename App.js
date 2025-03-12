@@ -49,7 +49,7 @@ export default function App() {
             color={'#000'}
             onPress={()=>setMostrarDados(true)}
             />
-            {mostrarDados&&<TratandoOsDados Np={nome} Vp={preco} PP={porcentagem} Pn={preconovo}/>}
+            {mostrarDados&&<TratandoOsDados nome={nome} preco={preco} porcentagem={porcentagem} preconovo={preconovo}/>}
         </View>
     )
 }
