@@ -1,14 +1,17 @@
-import { View } from "react-native"
+import { View , Text} from "react-native"
 
 
 export default (props) => {
-    var NovoPreco = props.preco - (props.porcentagem * 100 )
+    let Np = props.nome
+    let Vp =props.preco
+    let PP = props.porcentagem
+    let Pn = parseInt((Vp * (PP) )% 100)
     return(
         <View>
-            <Text>Nome do produto :{props.name}</Text>
-            <Text>Valor do produto : {props.preco}</Text>
-            <Text>Porcentagem : {props.porcentagem}</Text>
-            <Text>Novo valor : {parseInt(NovoPreco)}</Text>
+            <Text>Nome do produto :{Np}</Text>
+            <Text>Valor do produto : {Vp}</Text>
+            <Text>Porcentagem : {PP}</Text>
+            <Text>Novo valor : {parseInt(Pn)}</Text>
         </View>
     )
 }

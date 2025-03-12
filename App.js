@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function App() {
     const [nome , setNome] = useState('');
     const [preco , setPreco] = useState('');
+    const [preconovo , setPreconovo] = useState('');
     const [porcentagem , setPorcentagem] = useState('');
     const[mostrarDados,setMostrarDados] = useState(false)
     return(
@@ -44,11 +45,11 @@ export default function App() {
             onChangeText={(value) => setPorcentagem(value)}
             />
             <Button
-            title='Clique aqui para enviar'
+            title='Clique aqui para tratar os dados'
             color={'#000'}
             onPress={()=>setMostrarDados(true)}
             />
-            {mostrarDados&&<TratandoOsDados name={nome} price={preco}/>}
+            {mostrarDados&&<TratandoOsDados Np={nome} Vp={preco} PP={porcentagem} Pn={preconovo}/>}
         </View>
     )
 }
@@ -59,8 +60,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#efff',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    TextColor:'#000'
   },imagem: {
     resizeMode: 'center',
-    width: 250
+    width: 250,
+    height:250
   },
 });
