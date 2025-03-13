@@ -1,6 +1,9 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
-export default function TratandoOsDados({ nome, preco, porcentagem }) {
+export default function ResultadoScreen({ route, navigation }) {
+    const { nome, preco, porcentagem } = route.params;
+
     const precoNum = parseFloat(preco);
     const porcentagemNum = parseFloat(porcentagem);
 
@@ -13,6 +16,9 @@ export default function TratandoOsDados({ nome, preco, porcentagem }) {
 
     return (
         <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.voltar}>
+                <Ionicons name="arrow-back" size={24} color="white" />
+            </TouchableOpacity>
             <Text style={styles.titulo}>Resumo do Cálculo</Text>
             <Text style={styles.texto}>Nome do Produto: {nome}</Text>
             <Text style={styles.texto}>Valor Original: R$ {precoNum.toFixed(2)}</Text>
@@ -25,20 +31,28 @@ export default function TratandoOsDados({ nome, preco, porcentagem }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 20,
-        padding: 15,
-        borderRadius: 5,
+        flex: 1,
         backgroundColor: '#dff0d8',
-        width: '90%',
         alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+    },
+    voltar: {
+        position: 'absolute',
+        top: 40,
+        left: 20,
+        backgroundColor: '#1E90FF',
+        padding: 10,
+        borderRadius: 50,
     },
     titulo: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 20,
     },
     texto: {
-        fontSize: 16,
+        fontSize: 18,
+        marginVertical: 5,
     },
     erro: {
         color: 'red',
